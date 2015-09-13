@@ -43,6 +43,7 @@ public class PrefFragment extends PreferenceFragment
 
     private void processViews() {
         // 取得設定畫面元件
+    	//取得的都是static變數,會直接改變主程式的值
     	name = (EditTextPreference)findPreference(Fragment04Activity.KEY_NAME);
     	amount = (ListPreference)findPreference(Fragment04Activity.KEY_AMOUNT);
     	weeks = (MultiSelectListPreference)findPreference(Fragment04Activity.KEY_WEEKS);

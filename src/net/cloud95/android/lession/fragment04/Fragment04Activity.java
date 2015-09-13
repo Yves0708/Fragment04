@@ -23,6 +23,7 @@ public class Fragment04Activity extends Activity  {
     private EditText ringtone_edit;
     private CheckBox alarm_check;
     
+    //宣告static可以給其他類別直接調用
     public static final String KEY_NAME = "KEY_NAME";
     public static final String KEY_AMOUNT = "KEY_AMOUNT";
     public static final String KEY_WEEKS = "KEY_WEEKS";
