@@ -12,6 +12,7 @@ public class PrefActivity extends PreferenceActivity {
     public void onBuildHeaders(List<Header> target) {
         super.onBuildHeaders(target);
         // 載入指定的Preference Header資源
+        loadHeadersFromResource(R.xml.pref_headers, target);
     }
     
 }

@@ -42,21 +42,37 @@ public class Fragment04Activity extends Activity  {
         super.onResume();
         
         // 讀取資料與設定畫面元件
+        restorePref();
     }
 
     public void clickPref(View view) {
         // 啟動設定元件
+    	Intent intent = new Intent(this,PrefActivity.class);
+    	startActivity(intent);
     }
     
     public void clickCancel(View view) {
         // 結束
+    	finish();
     }
     
     // 讀取資料與設定畫面元件
     private void restorePref() {
         // 建立準備讀取資料用的SharedPreferences物件
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         // 讀取名稱、數量、星期、VIP、音效與鬧鈴資料
+    	String name = sp.getString(KEY_NAME, "");
+    	String amountStr = sp.getString(KEY_AMOUNT, "0");
+    	int amount = Integer.parseInt(amountStr);
+    	Set<String> weeks = sp.getStringSet(KEY_WEEKS, new HashSet<String>());
+    	String ringtone = sp.getString(KEY_RINGTONE, "");
+    	boolean alarm = sp.getBoolean(KEY_ALARM, false);
         // 設定畫面元件
+    	name_edit.setText(name);
+    	amount_seekbar.setProgress(amount);
+    	amount_text.setText(amountStr);
+    	weeks_edit.setText(ringtone);
+    	alarm_check.setChecked(alarm);
     }
     
     private void processViews() {

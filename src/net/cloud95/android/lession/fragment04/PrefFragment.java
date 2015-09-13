@@ -83,6 +83,7 @@ public class PrefFragment extends PreferenceFragment
     @Override
     public void onPause() {
         // 移除設定值改變監聽事件
+    	sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
         super.onPause();
     }    
 
@@ -92,6 +93,7 @@ public class PrefFragment extends PreferenceFragment
     @Override
     public void onSharedPreferenceChanged(
             SharedPreferences sharedPreferences, String key) {
+    	setSummary(key);
     }
 
 }
